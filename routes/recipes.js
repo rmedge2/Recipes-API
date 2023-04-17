@@ -18,7 +18,7 @@ router.get('/', function (req, res, next) {
 });
 
 
-// Get a random recipe
+// Time to get a random recipe
 router.get('/random', (req, res) => {
   fs.readFile(RECIPES_FILE, 'utf-8', (err, data) => {
     if (err) {
@@ -27,7 +27,7 @@ router.get('/random', (req, res) => {
       return;
     }
     const recipes = JSON.parse(data)
-    // console.log(Math.floor(Math.random() * (recipes.length)))
+
     let randomID = Math.floor(Math.random() * (recipes.length))
     console.log(randomID)
     const randomRecipe = recipes.find(recipe => recipe.id == randomID);
